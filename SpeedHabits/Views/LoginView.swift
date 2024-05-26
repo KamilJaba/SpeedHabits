@@ -14,7 +14,8 @@ struct LoginView: View {
     var body: some View {
         NavigationView{
             VStack {
-                HeaderView(title: "Speed Habits", subtitle: "Demo Login", angle: 15, background: .teal)
+                HeaderView(title: "Speed Habits", subtitle: "New Habit Time!", angle: 0, background: .teal)
+                    .padding(.top, 40)
                 
                 
                 Form {
@@ -32,10 +33,11 @@ struct LoginView: View {
                     }
                     
                 }
-                .offset(y: -50)
+                .scrollContentBackground(.hidden)
+                .offset(y: -170)
                 
                 VStack {
-                    Text("New around here?")
+                    Text("New to SpeedHabits?")
                     NavigationLink("Create An Account", destination: RegisterView())
                 }
                 .padding(.bottom, 50)

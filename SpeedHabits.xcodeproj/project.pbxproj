@@ -16,7 +16,6 @@
 		D375DEDE2BD0B20000F4DA2E /* RunSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375DEDD2BD0B20000F4DA2E /* RunSelectorViewModel.swift */; };
 		D375DEE02BD0B21600F4DA2E /* RunSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375DEDF2BD0B21600F4DA2E /* RunSelectorView.swift */; };
 		D375DEE22BD0BB0700F4DA2E /* AddRunCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375DEE12BD0BB0700F4DA2E /* AddRunCollectionView.swift */; };
-		D375DEE42BD7601A00F4DA2E /* addCollectionByCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375DEE32BD7601A00F4DA2E /* addCollectionByCode.swift */; };
 		D38CC5742B40C8A600252F52 /* SpeedHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CC5732B40C8A600252F52 /* SpeedHabitsApp.swift */; };
 		D38CC5762B40C8A600252F52 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CC5752B40C8A600252F52 /* MainView.swift */; };
 		D38CC5782B40C8A900252F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38CC5772B40C8A900252F52 /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 		D3BD07F12BBE9EDC006FEF3C /* RunItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BD07F02BBE9EDC006FEF3C /* RunItemView.swift */; };
 		D3BD07F32BBEBCDA006FEF3C /* NewRunItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BD07F22BBEBCDA006FEF3C /* NewRunItemView.swift */; };
 		D3BD07F52BBEBCE9006FEF3C /* NewRunItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BD07F42BBEBCE9006FEF3C /* NewRunItemViewViewModel.swift */; };
-		D3E885702BF666FC00338876 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E8856F2BF666FC00338876 /* TestFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +84,6 @@
 		D375DEDD2BD0B20000F4DA2E /* RunSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunSelectorViewModel.swift; sourceTree = "<group>"; };
 		D375DEDF2BD0B21600F4DA2E /* RunSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunSelectorView.swift; sourceTree = "<group>"; };
 		D375DEE12BD0BB0700F4DA2E /* AddRunCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunCollectionView.swift; sourceTree = "<group>"; };
-		D375DEE32BD7601A00F4DA2E /* addCollectionByCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCollectionByCode.swift; sourceTree = "<group>"; };
 		D38CC5702B40C8A600252F52 /* SpeedHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38CC5732B40C8A600252F52 /* SpeedHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHabitsApp.swift; sourceTree = "<group>"; };
 		D38CC5752B40C8A600252F52 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -126,7 +123,6 @@
 		D3BD07F02BBE9EDC006FEF3C /* RunItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunItemView.swift; sourceTree = "<group>"; };
 		D3BD07F22BBEBCDA006FEF3C /* NewRunItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunItemView.swift; sourceTree = "<group>"; };
 		D3BD07F42BBEBCE9006FEF3C /* NewRunItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunItemViewViewModel.swift; sourceTree = "<group>"; };
-		D3E8856F2BF666FC00338876 /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,8 +251,6 @@
 				D3BD07F42BBEBCE9006FEF3C /* NewRunItemViewViewModel.swift */,
 				D375DED72BD0660300F4DA2E /* PomodoroViewViewModel.swift */,
 				D375DEDD2BD0B20000F4DA2E /* RunSelectorViewModel.swift */,
-				D375DEE32BD7601A00F4DA2E /* addCollectionByCode.swift */,
-				D3E8856F2BF666FC00338876 /* TestFile.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -458,13 +452,11 @@
 				D38CC5D12B6197E500252F52 /* Extensions.swift in Sources */,
 				D3BD07EF2BBE9ECB006FEF3C /* RunItem.swift in Sources */,
 				D38CC5742B40C8A600252F52 /* SpeedHabitsApp.swift in Sources */,
-				D3E885702BF666FC00338876 /* TestFile.swift in Sources */,
 				D38CC5C72B50490F00252F52 /* NewItemViewViewModel.swift in Sources */,
 				D38CC5D72B74F01700252F52 /* TimerViewViewModel.swift in Sources */,
 				D38CC5BB2B50489300252F52 /* ToDoListItem.swift in Sources */,
 				D375DED62BD065AA00F4DA2E /* PomodoroTimer.swift in Sources */,
 				D38CC5B12B50480100252F52 /* NewItemView.swift in Sources */,
-				D375DEE42BD7601A00F4DA2E /* addCollectionByCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

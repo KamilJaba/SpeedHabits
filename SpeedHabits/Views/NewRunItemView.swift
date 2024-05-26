@@ -1,5 +1,5 @@
 //
-//  NewItemView.swift
+//  NewRunItemView.swift
 //  SpeedHabits
 //
 //  Created by Kamil Jablonski on 11/01/2024.

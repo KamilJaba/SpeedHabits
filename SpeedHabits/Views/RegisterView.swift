@@ -12,7 +12,7 @@ struct RegisterView: View {
     
     var body: some View {
         VStack {
-            HeaderView(title: "Register", subtitle: "Demo Build", angle: -15, background: .orange)
+            HeaderView(title: "Register", subtitle: "", angle: 0, background: .orange)
             Form {
                 TextField("Full Name", text: $viewModel.name)
                     .textFieldStyle(DefaultTextFieldStyle())
@@ -30,7 +30,14 @@ struct RegisterView: View {
                     viewModel.register()
                 }
             }
-                Spacer()
+            .scrollContentBackground(.hidden)
+            .offset(y: -170)
+            
+            VStack {
+                Text("Have an Account?")
+                NavigationLink("Log In", destination: LoginView())
+            }
+            .padding(.bottom, 50)
         }
     }
 }

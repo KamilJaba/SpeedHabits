@@ -1,5 +1,5 @@
 //
-//  ToDoListItemViewViewModel.swift
+//  RunItemViewViewModel.swift
 //  SpeedHabits
 //
 //  Created by Kamil Jablonski on 11/01/2024.

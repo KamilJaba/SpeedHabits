@@ -1,218 +1,10 @@
 //
-//  ToDoListView.swift
+//  RunView.swift
 //  SpeedHabits
 //
 //  Created by Kamil Jablonski on 11/01/2024.
 //
 //
-//import FirebaseFirestoreSwift
-//import SwiftUI
-//
-//struct RunView: View {
-//    @StateObject var viewModel: RunViewViewModel
-//    @FirestoreQuery var items: [RunItem]
-//    
-//    @State var countdownTimer = 100
-//    @State var timerRunning = false
-//    @State var split = 0
-//    @State var CurrentColor = Color.gray
-//    
-//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-//    
-//    let hours = 0
-//    let minutes = 0
-//    let seconds = 0
-//    
-//    
-//    
-//    init(userId: String) {
-//        // users/<id>/todos/<entries>
-//        self._items = FirestoreQuery(collectionPath: "users/\(userId)/runItems")
-//        
-//        self._viewModel = StateObject(
-//            wrappedValue: RunViewViewModel(userId: userId))
-//        
-//    }
-//    
-//    var body: some View {
-//        NavigationView{
-//            VStack{
-//                VStack{
-//                    List(items) { item in
-//                        RunItemView(item: item)
-//                            .swipeActions {
-//                                Button("Delete") {
-//                                    viewModel.delete(id: item.id)
-//                                }
-//                                .tint(.red)
-//                            }
-//                            //.listRowBackground(Color.red.opacity(0.3)) Background of Row
-//                            .listRowBackground(CurrentColor)
-//                    }
-//                    .listStyle(PlainListStyle())
-//                    
-//                    //.foregroundColor(Color.red) TITLE TEXT "Make Bed"
-//                }
-//                .navigationTitle("Habit Run")
-//                .toolbar{
-//                    Button{
-//                        // Action
-//                        viewModel.showingNewItemView = true
-//                    } label: {
-//                        Image(systemName: "plus")
-//                    }
-//                }
-//                .sheet(isPresented: $viewModel.showingNewItemView) {
-//                    NewRunItemView(newItemPresented: $viewModel.showingNewItemView)
-//                }
-//                VStack(spacing:0) {
-//                    Text(
-//                        "\((countdownTimer % 3600) / 60)" + ":" + "\((countdownTimer) % 60)")
-//                    //Text("Duration: \(hours) hours, \(minutes) minutes, \(seconds) seconds")
-//                        .padding()
-//                        .onReceive(timer) { _ in
-//                            if countdownTimer >= 0 && timerRunning {
-//                                countdownTimer += 1
-//                                
-//                                let hours = countdownTimer / 3600
-//                                let minutes = (countdownTimer % 3600) / 60
-//                                let seconds = countdownTimer % 60
-//                            } else {
-//                                timerRunning = false
-//                            }
-//                            
-//                        }
-//                        .font(.system(size: 40, weight: .bold))
-//                    
-//                    HStack(spacing:20) {
-//                        Button("Start") {
-//                            timerRunning = true
-//                        }
-//                        
-//                        Button("Split") {
-//                        }.foregroundColor(.green)
-//                        
-//                        
-//                        Button("Reset") {
-//                            countdownTimer = 0
-//                        }.foregroundColor(.red)
-//                        
-//                        Button("Finish") {
-//                            timerRunning = false
-//                        }.foregroundColor(.yellow)
-//                    }
-//                    .padding(.bottom, 50)                }
-//                }}}}
-//        
-//
-//
-//
-//struct RunView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RunView(userId: "TV0IJX4Ep9bg6q7dUfClQXVlaRY2")
-//    }
-//}
-
-//import FirebaseFirestoreSwift
-//import SwiftUI
-//
-//struct RunView: View {
-//    @StateObject var viewModel: RunViewViewModel
-//    @FirestoreQuery var items: [RunItem]
-//    @State var timer = 0  // This will hold the current timer value in seconds
-//    @State var timerRunning = false
-//
-//    let timerPublisher = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-//    
-//    init(userId: String) {
-//            print("Using userId: \(userId)")
-//            self._items = FirestoreQuery(collectionPath: "users/\(userId)/runItems")
-//    
-//            self._viewModel = StateObject(
-//                wrappedValue: RunViewViewModel(userId: userId))
-//        }
-//
-//    var body: some View {
-//            VStack {
-//                List(items) { item in
-//                    RunItemView(item: item)
-//                        .listRowBackground(item.color)  // Use dynamic color
-//                }
-//                .onAppear {
-//                    print("Items loaded: \(items.count)")
-//                }
-//
-//                HStack {
-//                    Button("Start/Stop") {
-//                        timerRunning.toggle()
-//                    }
-//                    
-//                    Button("Split") {
-//                        viewModel.handleSplit(lastItem: items.last, splitTime: timer)
-//                    }
-//                }
-//            }
-//            .onReceive(timerPublisher) { _ in
-//                if timerRunning {
-//                    timer += 1
-//                }
-//            }
-//        }
-//    }
-
-
-//import Combine
-//import SwiftUI
-//
-//struct RunView: View {
-//    @StateObject var viewModel: RunViewViewModel
-//
-//    // Initialize RunView with a userId string
-//    init(userId: String) {
-//        // Initialize the ViewModel with the userId
-//        _viewModel = StateObject(wrappedValue: RunViewViewModel(userId: userId))
-//    }
-//
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                List {
-//                    ForEach(viewModel.items) { item in
-//                        RunItemView(viewModel: RunItemViewViewModel(runItem: item, timerPublisher: viewModel.timerPublisher))
-//                    }
-//                }
-//                .navigationTitle("Running Items")
-//                
-//                Spacer()
-//                timerDisplay
-//                timerControls
-//            }
-//        }
-//    }
-//
-//    var timerControls: some View {
-//        HStack {
-//            Button("Start") {
-//                viewModel.startTimer()
-//            }
-//            Button("Reset") {
-//                viewModel.resetTimer()
-//            }
-//            Button("Split") {
-//                viewModel.splitTimer()
-//            }
-//        }
-//        .padding()
-//        .background(Color(UIColor.secondarySystemBackground))
-//        .cornerRadius(10)
-//    }
-//
-//    var timerDisplay: some View {
-//        Text("Timer: \(viewModel.timer) seconds")
-//            .font(.title)
-//            .padding()
-//    }
-//}
 
 import SwiftUI
 
@@ -221,6 +13,7 @@ struct RunView: View {
     @State private var selectedItem: RunItem?
     @State private var showEditModal = false
     @State private var showingCreateModal = false
+    @Environment(\.colorScheme) var colorScheme
     var userId: String
         var runCollection: String
     var title: String
@@ -238,7 +31,7 @@ struct RunView: View {
                 List {
                     ForEach(viewModel.items) { item in
                         RunItemView(viewModel: RunItemViewViewModel(runItem: item))
-                            .listRowBackground(item.color)
+                            .listRowBackground(backgroundColor(for: item))
                             .onTapGesture {
                                 self.selectedItem = item
                                 self.showEditModal = true
@@ -257,6 +50,7 @@ struct RunView: View {
                 timerDisplay
                 timerControls
             }
+            .scrollContentBackground(.hidden)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
@@ -269,8 +63,7 @@ struct RunView: View {
                         }
         }
     }
-
-
+    
     var timerControls: some View {
            HStack {
                Button(action: viewModel.startTimer) {
@@ -302,6 +95,14 @@ struct RunView: View {
                .shadow(radius: 10)
                .transition(.slide)
        }
+    
+    private func backgroundColor(for item: RunItem) -> Color {
+            if item.color == .white && colorScheme == .dark {
+                return .black
+            } else {
+                return item.color
+            }
+        }
    }
 
    struct TimerButtonStyle: ButtonStyle {
