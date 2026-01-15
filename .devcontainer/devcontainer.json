@@ -1,0 +1,18 @@
+{
+  "name": "Expo React Native",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "forwardPorts": [8081, 19000, 19001, 19002],
+  "postCreateCommand": "npm install -g @expo/cli eas-cli && sudo apt-get update && sudo apt-get install -y watchman",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.vscode-typescript-next", "esbenp.prettier-vscode", "bradlc.vscode-tailwindcss"]
+    }
+  },
+  "remoteEnv": {
+    "REACT_NATIVE_PACKAGER_HOSTNAME": "$(hostname)"
+  }
+}
